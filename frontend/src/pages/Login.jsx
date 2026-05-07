@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import toast from 'react-hot-toast';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
@@ -79,6 +80,13 @@ function Login() {
                 >
                     Sign In
                 </button>
+
+                <p className="text-center mt-5">
+  Don’t have an account?{' '}
+  <Link to="/register" className="font-bold">
+    Sign Up
+  </Link>
+</p>
 
             </div>
 

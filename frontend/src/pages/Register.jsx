@@ -1,6 +1,5 @@
-import toast from 'react-hot-toast';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
 import API from '../services/api';
 
 function Register() {
@@ -21,13 +20,13 @@ function Register() {
         password
       });
 
-     toast.success('Registration Successful');
+      alert('Registration Successful');
 
       navigate('/');
 
     } catch (err) {
 
-      toast.error('Registration Failed');
+      alert('Registration Failed');
 
     }
 
@@ -43,57 +42,40 @@ function Register() {
           Register
         </h1>
 
-        <div className="mb-5">
+        <input
+          type="text"
+          placeholder="Enter Name"
+          className="w-full border-4 border-black rounded-xl px-4 py-3 mb-5"
+          onChange={(e) => setName(e.target.value)}
+        />
 
-          <label className="block mb-2 font-semibold">
-            Name
-          </label>
+        <input
+          type="email"
+          placeholder="Enter Email"
+          className="w-full border-4 border-black rounded-xl px-4 py-3 mb-5"
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
-          <input
-            type="text"
-            placeholder="Enter Name"
-            className="w-full border-4 border-black rounded-xl px-4 py-3 outline-none"
-            onChange={(e) => setName(e.target.value)}
-          />
-
-        </div>
-
-        <div className="mb-5">
-
-          <label className="block mb-2 font-semibold">
-            Email address
-          </label>
-
-          <input
-            type="email"
-            placeholder="Enter Email"
-            className="w-full border-4 border-black rounded-xl px-4 py-3 outline-none"
-            onChange={(e) => setEmail(e.target.value)}
-          />
-
-        </div>
-
-        <div className="mb-8">
-
-          <label className="block mb-2 font-semibold">
-            Password
-          </label>
-
-          <input
-            type="password"
-            placeholder="Enter Password"
-            className="w-full border-4 border-black rounded-xl px-4 py-3 outline-none"
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-        </div>
+        <input
+          type="password"
+          placeholder="Enter Password"
+          className="w-full border-4 border-black rounded-xl px-4 py-3 mb-6"
+          onChange={(e) => setPassword(e.target.value)}
+        />
 
         <button
           onClick={handleRegister}
-          className="w-full bg-black text-white py-3 rounded-full text-lg font-semibold hover:scale-105 transition"
+          className="w-full bg-black text-white py-3 rounded-full text-lg font-semibold"
         >
           Sign Up
         </button>
+
+        <p className="text-center mt-5">
+          Already have an account?{' '}
+          <Link to="/" className="font-bold">
+            Login
+          </Link>
+        </p>
 
       </div>
 
